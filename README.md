@@ -1,0 +1,1 @@
+# Use-.bat-script-to-clean-files-in-Windows-Temp-folder
