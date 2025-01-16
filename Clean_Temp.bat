@@ -16,11 +16,6 @@ echo Deleting user temp files: %temp%
 rd /s /q "%temp%"
 mkdir "%temp%"
 
-:: Delete all files and subfolders in the %localappdata%\temp folder
-echo Deleting local temp files: %localappdata%\Temp
-rd /s /q "%localappdata%\Temp"
-mkdir "%localappdata%\Temp"
-
 :: Delete all files and subfolders in the system %windir%\temp folder
 set systemtemp=%windir%\Temp
 echo Deleting system temp files: %systemtemp%
