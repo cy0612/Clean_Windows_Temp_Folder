@@ -1,5 +1,6 @@
 @echo off
 color a
+
 :: Check for administrator privileges
 net session >nul 2>&1
 if %errorlevel% neq 0 (
@@ -9,25 +10,18 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-echo Cleaning all temporary files...
-
-:: Delete all files and subfolders in the current user's %temp% folder
+:: Clean the current user's %temp% folder
 echo Deleting user temp files: %temp%
 rd /s /q "%temp%"
 mkdir "%temp%"
+echo User temp files have been cleaned!
 
-:: Delete all files and subfolders in the system %windir%\temp folder
-set systemtemp=%windir%\Temp
-echo Deleting system temp files: %systemtemp%
-rd /s /q "%systemtemp%"
-mkdir "%systemtemp%"
+:: Clean the system %windir%\Temp folder
+echo Deleting system temp files: %windir%\Temp
+rd /s /q "%windir%\Temp"
+mkdir "%windir%\Temp"
+echo System temp files have been cleaned!
 
-:: Additional cleanup for %userprofile%\Local Settings\Temp
-if exist "%userprofile%\Local Settings\Temp" (
-    echo Deleting local settings temp files: %userprofile%\Local Settings\Temp
-    rd /s /q "%userprofile%\Local Settings\Temp"
-    mkdir "%userprofile%\Local Settings\Temp"
-)
-
-echo Cleanup completed!
+:: All done
+echo All temporary folders have been cleaned successfully!
 exit
